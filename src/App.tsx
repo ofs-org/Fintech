@@ -1,15 +1,18 @@
 import Header from './components/header'
 import SideNav from './components/sidenav'
 import Summary from './pages/summary'
+import { Container } from './styles'
 
 function App() {
   return (
     <>
-      <SideNav />
-      <main>
-        <Header />
-        <Summary />
-      </main>
+      <Container>
+        <SideNav />
+        <main>
+          <Header />
+          <Summary />
+        </main>
+      </Container>
     </>
   )
 }

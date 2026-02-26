@@ -1,5 +1,15 @@
+import { useData } from '@/context/data-context'
+import DateRange from '../date-range'
+
 const Header = () => {
-  return <div>Header</div>
+  const { data } = useData()
+  console.log(data)
+
+  return (
+    <div>
+      <DateRange />
+    </div>
+  )
 }
 
 export default Header
