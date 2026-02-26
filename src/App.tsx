@@ -1,7 +1,15 @@
+import Header from './components/header'
+import SideNav from './components/sidenav'
+import Summary from './pages/summary'
+
 function App() {
   return (
     <>
-      <h1>FinTech</h1>
+      <SideNav />
+      <main>
+        <Header />
+        <Summary />
+      </main>
     </>
   )
 }
