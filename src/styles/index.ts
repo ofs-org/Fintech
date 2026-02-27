@@ -62,8 +62,23 @@ const GlobalStyles = createGlobalStyle`
   `
 export const Container = styles.div`
  display: grid;
-    padding: ${spaces.gap};
-    gap: ${spaces.gap};
+ padding: ${spaces.gap};
+ gap: ${spaces.gap};
+ grid-template-columns: 240px auto;
 `
 
+export const Box = styles.div`
+flex: 1;
+padding: ${spaces.gap};
+border-radius: ${spaces.gap};
+ background: ${defaultTheme['color-5']};
+`
+
+export const Title = styles.h2`
+ margin: 0;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: ${spaces.gap};
+  color: ${defaultTheme['color-1']};
+`
 export { GlobalStyles }
