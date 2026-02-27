@@ -1,5 +1,6 @@
-import Header from './components/header'
-import SideNav from './components/sidenav'
+import Header from './containers/header'
+import SideNav from './containers/sidenav'
+import Sales from './pages/Sales'
 import Summary from './pages/summary'
 import { Container } from './styles'
 
@@ -11,6 +12,7 @@ function App() {
         <main>
           <Header />
           <Summary />
+          <Sales />
         </main>
       </Container>
     </>

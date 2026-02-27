@@ -1,5 +1,5 @@
 import { useData } from '@/context/data-context'
-import DateInput from '../date-input'
+import DateInput from '../../components/date-input'
 
 const DateRange = () => {
   const { start, setStart, end, setEnd } = useData()
@@ -11,13 +11,12 @@ const DateRange = () => {
         value={start}
         onChange={({ target }) => setStart(target.value)}
       />
-      {start}
+
       <DateInput
         label="Final"
         value={end}
         onChange={({ target }) => setEnd(target.value)}
       />
-      {end}
     </form>
   )
 }
