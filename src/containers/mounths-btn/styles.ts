@@ -5,6 +5,6 @@ export const ContainerMounthsBtn = styled.div`
   display: flex;
   gap: 1.25rem;
   justify-content: center;
-  aling-items: center;
+  align-items: center;
   flex: 1;
 `

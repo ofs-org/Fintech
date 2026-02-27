@@ -62,9 +62,9 @@ const GlobalStyles = createGlobalStyle`
   `
 export const Container = styles.div`
  display: grid;
-    padding: ${spaces.gap};
-    gap: ${spaces.gap};
-    grid-template-columns: 240px auto);
+ padding: ${spaces.gap};
+ gap: ${spaces.gap};
+ grid-template-columns: 240px auto;
 `
 
 export const Box = styles.div`
