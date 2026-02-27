@@ -2,7 +2,7 @@ import { getDaysAGo } from '@/utils/days-a-go'
 import React from 'react'
 import useFetch from '../hooks/use-fetch'
 
-type ISales = {
+export type ISales = {
   id: string
   nome: string
   preco: number
