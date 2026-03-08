@@ -2,6 +2,7 @@ import summaryIcon from '@/assets/icons/resumo.svg'
 import salesIcon from '@/assets/icons/vendas.svg'
 import FintechSVG from '@/components/FintechSVG'
 import { SideNavStyles } from './styles'
+import { NavLink } from 'react-router-dom'
 const SideNav = () => {
   return (
     <SideNavStyles>
@@ -11,13 +12,13 @@ const SideNav = () => {
           <span>
             <img src={summaryIcon} alt="" />
           </span>
-          <a href="#summary">Summary</a>
+          <NavLink to="/">Summary</NavLink>
         </li>
         <li>
           <span>
             <img src={salesIcon} alt="" />
           </span>
-          <a href="#sales">Sales</a>
+          <NavLink to="/sales">Sales</NavLink>
         </li>
       </ul>
     </SideNavStyles>
