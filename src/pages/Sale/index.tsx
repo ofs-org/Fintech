@@ -17,17 +17,27 @@ const Sale = () => {
 
   return (
     <SaleItem>
-      <div>Nome: {data.nome}</div>
-      <div>Identificador: {data.id}</div>
+      <div>
+        Nome: <span> {data.nome}</span>
+      </div>
+      <div>
+        Identificador: <span>{data.id} </span>{' '}
+      </div>
       <div>
         Valor da Venda:{' '}
-        {data.preco.toLocaleString('pt-br', {
-          style: 'currency',
-          currency: 'BRL'
-        })}
+        <span>
+          {data.preco.toLocaleString('pt-br', {
+            style: 'currency',
+            currency: 'BRL'
+          })}
+        </span>
       </div>
-      <div>Status: {data.status}</div>
-      <div>Tipo de Pagamento: {data.pagamento}</div>
+      <div>
+        Status: <span>{data.status}</span>
+      </div>
+      <div>
+        Tipo de Pagamento: <span> {data.pagamento}</span>
+      </div>
     </SaleItem>
   )
 }

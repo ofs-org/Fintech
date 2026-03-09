@@ -1,3 +1,4 @@
+import SalesChart from '@/components/sales-chart'
 import { useData } from '@/context/data-context'
 import { Box, Title } from '@/styles'
 import { SummaryStyles } from './styles'
@@ -36,7 +37,9 @@ const Summary = () => {
           </span>
         </Box>
       </SummaryStyles>
-      <Box>Graficos</Box>
+      <Box>
+        <SalesChart data={data} />
+      </Box>
     </section>
   )
 }

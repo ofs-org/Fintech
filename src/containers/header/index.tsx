@@ -1,9 +1,9 @@
 import { useData } from '@/context/data-context'
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import DateRange from '../date-range'
 import MouthsBtn from '../mounths-btn'
 import { ContainerHeader, DateRangeStyles } from './styles'
-import { useLocation } from 'react-router-dom'
 
 const Header = () => {
   const [title, setTitle] = React.useState('')
@@ -20,7 +20,6 @@ const Header = () => {
   }, [location])
 
   const { data } = useData()
-  console.log(data)
 
   return (
     <ContainerHeader>
