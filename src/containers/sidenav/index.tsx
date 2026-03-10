@@ -1,12 +1,14 @@
 import summaryIcon from '@/assets/icons/resumo.svg'
 import salesIcon from '@/assets/icons/vendas.svg'
 import FintechSVG from '@/components/FintechSVG'
-import { SideNavStyles } from './styles'
 import { NavLink } from 'react-router-dom'
+import { SideNavStyles } from './styles'
 const SideNav = () => {
   return (
     <SideNavStyles>
-      <FintechSVG title="FinTech | OFS" />
+      <NavLink to="/">
+        <FintechSVG title="FinTech | OFS" />
+      </NavLink>
       <ul>
         <li>
           <span>

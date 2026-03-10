@@ -4,11 +4,11 @@ import styled from 'styled-components'
 
 export const DateLabel = styled.label`
   display: block;
-  margin-bottom: ${spaces.gapS};
+  margin-bottom: ${spaces.gap_small};
   font-weight: 600;
   font-size: 1rem;
   color: ${defaultTheme['color-2']};
-  padding: ${spaces.gapS} 0.75rem;
+  padding: ${spaces.gap_small} 0.75rem;
   background-color: ${defaultTheme['color-4']};
   border-radius: ${spaces.gap};
 `

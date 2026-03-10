@@ -7,11 +7,11 @@ export const LoadingStyle = styled.div`
   height: 200px;
   justify-content: center;
   align-items: center;
-  & div {
+  div {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: ${spaces.gapS};
+    border: ${spaces.gap_small};
     border: 4px solid ${defaultTheme['color-3']};
     border-right: ${defaultTheme['color-1']};
     animation: spin 1s infinite;

@@ -2,7 +2,7 @@ import styles, { createGlobalStyle } from 'styled-components'
 import { defaultTheme } from './themes/default'
 
 export const spaces = {
-  gapS: '0.625rem',
+  gap_small: '0.625rem',
   gap: '1.25rem'
 }
 
@@ -15,15 +15,11 @@ const GlobalStyles = createGlobalStyle`
   body {
   font-family: sans-serif;
   font-size: 1.5rem;
-  background: #f9f9f9;
+  background: ${defaultTheme['color-6']};
   color: ${defaultTheme['color-2']};
   background: ${defaultTheme['color-4']};
   }
-  .box {
-    padding: ${spaces.gap};
-    border-radius: ${spaces.gap};
-    background: ${defaultTheme['color-5']};
-  }
+  
   ul {
     list-style: none;
     padding: 0;
@@ -33,31 +29,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     font-weight: 600;
   }
-  .flex {
-    display: flex;
-    gap: ${spaces.gap};
-  }
-  .flex > * {
-    flex: 1;
-  }
-  .mb {
-    margin-bottom: ${spaces.gap};
-  }
-  .bg1 {
-    background-color: ${defaultTheme['color-1']};
-  }
-  .bg2 {
-    background-color: ${defaultTheme['color-2']};
-  }
-  .bg3 {
-    background-color: ${defaultTheme['color-3']};
-  }
-  .bg4 {
-    background-color: ${defaultTheme['color-4']};
-  }
-  .bg5 {
-    background-color: ${defaultTheme['color-5']};
-  }
+  
   
   `
 export const Container = styles.div`
@@ -65,6 +37,9 @@ export const Container = styles.div`
  padding: ${spaces.gap};
  gap: ${spaces.gap};
  grid-template-columns: 240px auto;
+ @media (max-width: 700px){
+  grid-template-columns: 1fr;
+ }
 `
 
 export const Box = styles.div`

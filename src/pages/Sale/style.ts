@@ -17,5 +17,9 @@ export const SaleItem = styled.div`
     border: 1px solid ${defaultTheme['color-2']};
     border-radius: 0.5rem;
     background-color: ${defaultTheme['color-3']};
+    @media (max-width: 700px) {
+      display: block;
+      margin-bottom: 1rem;
+    }
   }
 `

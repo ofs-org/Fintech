@@ -9,7 +9,7 @@ export const SideNavStyles = styled.nav`
   li {
     display: flex;
     align-items: center;
-    gap: ${spaces.gapS};
+    gap: ${spaces.gap_small};
     &:hover span {
       background-color: ${defaultTheme['color-3']};
     }
@@ -18,7 +18,7 @@ export const SideNavStyles = styled.nav`
       font-size: 1.125rem;
       text-decoration: none;
       color: ${defaultTheme['color-2']};
-      padding: ${spaces.gapS} 0;
+      padding: ${spaces.gap_small} 0;
     }
   }
   span {

@@ -19,4 +19,14 @@ export const DateRangeStyles = styled.div`
     border-radius: ${spaces.gap};
     background: ${defaultTheme['color-3']};
   }
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr;
+    h1:last-child {
+      grid-row: 1;
+    }
+  }
+  @media (max-width: 700px) {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
 `

@@ -1,8 +1,7 @@
-import { useData } from '@/context/data-context'
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import DateRange from '../date-range'
-import MouthsBtn from '../mounths-btn'
+import MouthsBtn from '../mouths-btn'
 import { ContainerHeader, DateRangeStyles } from './styles'
 
 const Header = () => {
@@ -18,8 +17,6 @@ const Header = () => {
       setTitle('Vendas')
     }
   }, [location])
-
-  const { data } = useData()
 
   return (
     <ContainerHeader>
