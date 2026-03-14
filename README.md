@@ -1,8 +1,6 @@
-# Fintech
-
-</div>
-
 <div align="center">
+
+# Fintech
 
 <img alt="Static Badge" src="https://img.shields.io/badge/React-19.2.0-blue?style=plastic&logo=react&logoColor=white">
 <img alt="Static Badge" src="https://img.shields.io/badge/TypeScript-5.9.3-blue?style=plastic&logo=typescript&logoColor=white">
@@ -15,13 +13,6 @@
 </div>
 
 <div align="center">
-<img src="https://res.cloudinary.com/delo0gvyb/image/upload/v1773460452/Fintech_q0nwls.webp" alt="Banner" width="100%">
-</div>
-
-<div align="center">
-
-<div align="center">
-
 [Sobre](#sobre) •
 [Arquitetura de Dados](#arquitetura-de-dados) •
 [Tecnologias](#tecnologias) •
@@ -33,6 +24,10 @@
 [Contato](#contato) •
 [Licença](#licença)
 
+</div>
+
+<div align="center">
+<img src="https://res.cloudinary.com/delo0gvyb/image/upload/v1773460452/Fintech_q0nwls.webp" alt="Banner" width="100%">
 </div>
 
 ## Sobre
