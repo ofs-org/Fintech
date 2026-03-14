@@ -13,6 +13,7 @@
 </div>
 
 <div align="center">
+
 [Sobre](#sobre) •
 [Arquitetura de Dados](#arquitetura-de-dados) •
 [Tecnologias](#tecnologias) •
