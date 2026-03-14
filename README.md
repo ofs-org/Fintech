@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://res.cloudinary.com/delo0gvyb/image/upload/v1752290941/fintech-snapshot_qbafej.png" alt="Banner" width="100%">
+<img src="https://res.cloudinary.com/delo0gvyb/image/upload/v1773460452/Fintech_q0nwls.webp" alt="Banner" width="100%">
 </div>
 
 <div align="center">
@@ -15,13 +15,18 @@
 <img alt="Static Badge" src="https://img.shields.io/badge/Vite-7.3.1-purple?style=plastic&logo=vite&logoColor=white">
 <img alt="Static Badge" src="https://img.shields.io/badge/Styled_Components-6.3.11-pink?style=plastic&logo=styled-components&logoColor=white">
 <img alt="Static Badge" src="https://img.shields.io/badge/Recharts-3.8.0-orange?style=plastic&logo=recharts&logoColor=white">
+<img alt="Static Badge" src="https://img.shields.io/badge/React_Router-7.13.1-blue?style=plastic&logo=react-router&logoColor=white">
+<img alt="Static Badge" src="https://img.shields.io/badge/ESLint-9.39.1-purple?style=plastic&logo=eslint&logoColor=white">
 
 </div>
 
 <div align="center">
 
 [Sobre](#sobre) •
+[Arquitetura de Dados](#arquitetura-de-dados) •
 [Tecnologias](#tecnologias) •
+[Funcionalidades](#funcionalidades) •
+[Estrutura do Projeto](#estrutura-do-projeto) •
 [Configuração](#configuração) •
 [Rotas](#rotas) •
 [Contribuidores](#contribuidores) •
@@ -32,7 +37,7 @@
 
 ## Sobre
 
-Fintech é uma aplicação web para gerenciamento financeiro, desenvolvida por Emmanuel Oliveira e baseada nos estudos da Origamid. O projeto permite aos usuários acompanhar suas vendas, visualizar resumos e analisar seus dados financeiros através de gráficos.
+Fintech é uma aplicação web para gerenciamento financeiro, desenvolvida por Emmanuel Oliveira e baseada nos estudos da Origamid. O projeto permite aos usuários acompanhar as vendas, vindas de uma API, podendo analisar seus dados financeiros através de gráficos interativos.
 
 ## Tecnologias
 
@@ -44,28 +49,136 @@ As seguintes tecnologias foram utilizadas no desenvolvimento deste projeto:
 - **Styled-components:** Uma biblioteca para estilizar componentes React.
 - **Recharts:** Uma biblioteca de gráficos para React.
 - **React Router Dom:** Uma biblioteca de roteamento para React.
+- **ESLint:** Uma ferramenta de análise de código estática para identificar padrões problemáticos.
+
+## Funcionalidades
+
+- **Dashboard Financeiro:** Visualização resumida das vendas em formato de gráficos interativos.
+- **Lista de Vendas:** Exibição detalhada de todas as vendas com filtros por período.
+- **Detalhes de Venda:** Página individual com informações completas de cada transação.
+- **Filtro por Data:** Seleção de período personalizado ou botões de atalho (7, 15, 30 dias).
+- **Estados de Pagamento:** Visualização do status de cada venda (pago, processando, falha).
+- **Tipos de Pagamento:** Suporte para boleto, pix e cartão.
+- **Sistema de Parcelas:** Exibição de parcelas quando aplicável.
+
+## Arquitetura de Dados
+
+Esta seção documenta como os dados são gerenciados na aplicação.
+
+### Fonte de Dados
+
+Os dados são recebidos de uma API externa: **`https://data.origamid.dev/vendas/`**
+
+A API aceita parâmetros de consulta para filtrar por período:
+- `inicio`: Data inicial do filtro
+- `final`: Data final do filtro
+
+Exemplo de requisição:
+```
+https://data.origamid.dev/vendas/?inicio=2026-01-01&final=2026-01-15
+```
+
+### Hooks Customizados
+
+#### `useFetch<T>`
+
+Um hook genérico para realizar requisições HTTP localizado em `src/hooks/use-fetch.tsx`.
+
+**Funcionalidades:**
+- Requisições fetch nativa do JavaScript
+- Suporte a cancelamento de requisições (AbortController)
+- Estados separados: `data`, `loading`, `error`
+- Tipagem genérica para qualquer tipo de resposta
+
+```typescript
+const { data, loading, error } = useFetch<ISales[]>(url)
+```
+
+### Context API
+
+O **`DataContext`** (`src/context/data-context.tsx`) gerencia o estado global de dados da aplicação.
+
+**Estado fornecido:**
+- `data`: Array de vendas (ISales[])
+- `loading`: Status de carregamento
+- `error`: Mensagem de erro (se houver)
+- `start` / `end`: Datas do período selecionado
+- `setStart` / `setEnd`: Funções para alterar o período
+
+**Hook de acesso:** `useData()`
+
+```typescript
+const { data, loading, error, start, setStart, end, setEnd } = useData()
+```
+
+### Components que Utilizam
+
+| Componente/Page | Hook Utilizado | Propósito |
+|-----------------|----------------|-----------|
+| `src/main.tsx` | DataContextProvider | Provedor global |
+| `src/pages/summary/index.tsx` | useData | Exibir resumo financeiro |
+| `src/pages/Sales/index.tsx` | useData | Listar todas as vendas |
+| `src/pages/Sale/index.tsx` | useFetch | Detalhes de uma venda |
+| `src/components/btn-months/index.tsx` | useData | Alterar período rápido |
+| `src/containers/date-range/index.tsx` | useData | Selecionar período personalizado |
+
+## Estrutura do Projeto
+
+```
+src/
+├── components/       # Componentes reutilizáveis
+│   ├── btn-months/  # Botões de seleção rápida de período
+│   ├── date-input/  # Input de data
+│   ├── item-for-sales/    # Item de venda na lista
+│   ├── loading/     # Componente de carregamento
+│   └── sales-chart/ # Gráfico de vendas
+├── containers/      # Componentes de layout
+│   ├── date-range/  # Seletor de período
+│   ├── header/      # Cabeçalho da aplicação
+│   └── sidenav/     # Navegação lateral
+├── context/         # Context API do React
+│   └── data-context.tsx
+├── hooks/           # Hooks customizados
+│   └── use-fetch.tsx
+├── pages/           # Páginas da aplicação
+│   ├── Sale/        # Detalhes de uma venda
+│   ├── Sales/       # Lista de vendas
+│   └── summary/     # Dashboard/Resumo
+├── router/          # Configuração de rotas
+├── styles/          # Estilos globais e temas
+└── utils/           # Funções utilitárias
+```
 
 ## Configuração
 
 Para executar este projeto localmente, siga estes passos:
 
-1.  Clone o repositório:
+1. Clone o repositório:
     ```bash
     git clone https://github.com/seu-usuario/fintech.git
     ```
-2.  Navegue até o diretório do projeto:
+2. Navegue até o diretório do projeto:
     ```bash
     cd fintech
     ```
-3.  Instale as dependências:
+3. Instale as dependências:
     ```bash
     pnpm install
     ```
-4.  Execute o servidor de desenvolvimento:
+4. Execute o servidor de desenvolvimento:
     ```bash
     pnpm dev
     ```
-5.  Abra seu navegador e visite `http://localhost:5173`.
+5. Abra seu navegador e visite `http://localhost:5173`.
+
+### Scripts Disponíveis
+
+| Script | Descrição |
+|--------|-----------|
+| `pnpm dev` | Inicia o servidor de desenvolvimento |
+| `pnpm build` | Compila o projeto para produção |
+| `pnpm lint` | Executa a análise de código ESLint |
+| `pnpm preview` | Visualiza a versão de produção localmente |
 
 ## Rotas
 
@@ -120,7 +233,7 @@ Crie funcionalidades, mude estilos ou resolva `bugs` que iram contribuir para a 
 
 Inclua uma descrição clara das suas alterações e explique como elas resolvem o problema ou melhoram o projeto.<br>
 Solicitação: Envie um pull request para o repositório original, solicitando que suas alterações sejam incorporadas ao projeto.
-  <br>
+<br>
 
 **Revise e Responda a Feedback:**
 
@@ -139,8 +252,9 @@ Colabore: Os mantenedores do projeto podem solicitar alterações ou fornecer fe
 ## Licença
 
 ![Static Badge](https://img.shields.io/badge/--path?style=plastic&logo=mit&logoSize=auto&label=license%20MIT&labelColor=%23555555&color=%2397CA00)<br>
-Lançado em 2025, este projeto está sob a **licença MIT**<br>
+Lançado em 2026, este projeto está sob a **licença MIT**<br>
 <br>
+
 <div align="center">
-**⭐ Se este projeto foi útil para você, considere dar uma estrela!**
+<strong>⭐ Se este projeto foi útil para você, considere dar uma estrela!</strong>
 </div>
