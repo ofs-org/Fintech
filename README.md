@@ -1,9 +1,3 @@
-<div align="center">
-<img src="https://res.cloudinary.com/delo0gvyb/image/upload/v1773460452/Fintech_q0nwls.webp" alt="Banner" width="100%">
-</div>
-
-<div align="center">
-
 # Fintech
 
 </div>
@@ -19,6 +13,12 @@
 <img alt="Static Badge" src="https://img.shields.io/badge/ESLint-9.39.1-purple?style=plastic&logo=eslint&logoColor=white">
 
 </div>
+
+<div align="center">
+<img src="https://res.cloudinary.com/delo0gvyb/image/upload/v1773460452/Fintech_q0nwls.webp" alt="Banner" width="100%">
+</div>
+
+<div align="center">
 
 <div align="center">
 
@@ -70,10 +70,12 @@ Esta seção documenta como os dados são gerenciados na aplicação.
 Os dados são recebidos de uma API externa: **`https://data.origamid.dev/vendas/`**
 
 A API aceita parâmetros de consulta para filtrar por período:
+
 - `inicio`: Data inicial do filtro
 - `final`: Data final do filtro
 
 Exemplo de requisição:
+
 ```
 https://data.origamid.dev/vendas/?inicio=2026-01-01&final=2026-01-15
 ```
@@ -85,6 +87,7 @@ https://data.origamid.dev/vendas/?inicio=2026-01-01&final=2026-01-15
 Um hook genérico para realizar requisições HTTP localizado em `src/hooks/use-fetch.tsx`.
 
 **Funcionalidades:**
+
 - Requisições fetch nativa do JavaScript
 - Suporte a cancelamento de requisições (AbortController)
 - Estados separados: `data`, `loading`, `error`
@@ -99,6 +102,7 @@ const { data, loading, error } = useFetch<ISales[]>(url)
 O **`DataContext`** (`src/context/data-context.tsx`) gerencia o estado global de dados da aplicação.
 
 **Estado fornecido:**
+
 - `data`: Array de vendas (ISales[])
 - `loading`: Status de carregamento
 - `error`: Mensagem de erro (se houver)
@@ -113,14 +117,14 @@ const { data, loading, error, start, setStart, end, setEnd } = useData()
 
 ### Components que Utilizam
 
-| Componente/Page | Hook Utilizado | Propósito |
-|-----------------|----------------|-----------|
-| `src/main.tsx` | DataContextProvider | Provedor global |
-| `src/pages/summary/index.tsx` | useData | Exibir resumo financeiro |
-| `src/pages/Sales/index.tsx` | useData | Listar todas as vendas |
-| `src/pages/Sale/index.tsx` | useFetch | Detalhes de uma venda |
-| `src/components/btn-months/index.tsx` | useData | Alterar período rápido |
-| `src/containers/date-range/index.tsx` | useData | Selecionar período personalizado |
+| Componente/Page                       | Hook Utilizado      | Propósito                        |
+| ------------------------------------- | ------------------- | -------------------------------- |
+| `src/main.tsx`                        | DataContextProvider | Provedor global                  |
+| `src/pages/summary/index.tsx`         | useData             | Exibir resumo financeiro         |
+| `src/pages/Sales/index.tsx`           | useData             | Listar todas as vendas           |
+| `src/pages/Sale/index.tsx`            | useFetch            | Detalhes de uma venda            |
+| `src/components/btn-months/index.tsx` | useData             | Alterar período rápido           |
+| `src/containers/date-range/index.tsx` | useData             | Selecionar período personalizado |
 
 ## Estrutura do Projeto
 
@@ -154,30 +158,30 @@ src/
 Para executar este projeto localmente, siga estes passos:
 
 1. Clone o repositório:
-    ```bash
-    git clone https://github.com/seu-usuario/fintech.git
-    ```
+   ```bash
+   git clone https://github.com/seu-usuario/fintech.git
+   ```
 2. Navegue até o diretório do projeto:
-    ```bash
-    cd fintech
-    ```
+   ```bash
+   cd fintech
+   ```
 3. Instale as dependências:
-    ```bash
-    pnpm install
-    ```
+   ```bash
+   pnpm install
+   ```
 4. Execute o servidor de desenvolvimento:
-    ```bash
-    pnpm dev
-    ```
+   ```bash
+   pnpm dev
+   ```
 5. Abra seu navegador e visite `http://localhost:5173`.
 
 ### Scripts Disponíveis
 
-| Script | Descrição |
-|--------|-----------|
-| `pnpm dev` | Inicia o servidor de desenvolvimento |
-| `pnpm build` | Compila o projeto para produção |
-| `pnpm lint` | Executa a análise de código ESLint |
+| Script         | Descrição                                 |
+| -------------- | ----------------------------------------- |
+| `pnpm dev`     | Inicia o servidor de desenvolvimento      |
+| `pnpm build`   | Compila o projeto para produção           |
+| `pnpm lint`    | Executa a análise de código ESLint        |
 | `pnpm preview` | Visualiza a versão de produção localmente |
 
 ## Rotas
