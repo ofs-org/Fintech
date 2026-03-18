@@ -1,14 +1,14 @@
 import BtnMonths from '../../components/btn-months'
-import { ContainerMounthsBtn } from './styles'
+import { ContainerMouthsBtn } from './styles'
 
 const MouthsBtn = () => {
   return (
-    <ContainerMounthsBtn>
+    <ContainerMouthsBtn>
       <BtnMonths n={-3} />
       <BtnMonths n={-2} />
       <BtnMonths n={-1} />
       <BtnMonths n={0} />
-    </ContainerMounthsBtn>
+    </ContainerMouthsBtn>
   )
 }
 

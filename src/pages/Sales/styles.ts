@@ -5,6 +5,6 @@ export const SalesStyles = styled.section`
   margin-block: 1.25rem;
   ul {
     display: grid;
-    gap: ${spaces.gapS};
+    gap: ${spaces.gap_small};
   }
 `
