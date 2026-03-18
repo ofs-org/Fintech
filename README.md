@@ -20,6 +20,7 @@
 [Funcionalidades](#funcionalidades) •
 [Estrutura do Projeto](#estrutura-do-projeto) •
 [Configuração](#configuração) •
+[Fluxo de trabalho (Git Flow)](#fluxo-de-trabalho-git-flow) •
 [Rotas](#rotas) •
 [Contribuidores](#contribuidores) •
 [Contato](#contato) •
@@ -187,6 +188,17 @@ A aplicação possui as seguintes rotas:
 - **`/`**: Página inicial, exibe o resumo financeiro.
 - **`/sales`**: Página que lista todas as vendas.
 - **`/sales/:id`**: Página que exibe os detalhes de uma venda específica.
+
+## Fluxo de trabalho (Git Flow)
+
+Este projeto foi desenvolvido utilizando **Git Flow** como estratégia de branching.
+
+**Benefícios (resumo):**
+
+- **Organização do desenvolvimento:** separa trabalho do dia a dia (`develop`) do código pronto para produção (`main`).
+- **Isolamento de mudanças:** branches de **feature**, **release** e **hotfix** reduzem conflitos e facilitam revisões.
+- **Releases mais previsíveis:** preparação de entrega em branch dedicada (release), com estabilização antes do merge.
+- **Correções urgentes mais rápidas:** hotfixes podem ser aplicados em produção sem travar o fluxo de novas features.
 
 ## Contribuidores ou proprietários
 
