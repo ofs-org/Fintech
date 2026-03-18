@@ -3,5 +3,6 @@ export const defaultTheme = {
   'color-2': '#66593C',
   'color-3': '#eceadd',
   'color-4': '#f7f8f5',
-  'color-5': '#fff'
+  'color-5': '#fff',
+  'color-6': 'f9f9f9'
 }

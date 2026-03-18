@@ -1,21 +1,17 @@
 import Header from './containers/header'
 import SideNav from './containers/sidenav'
-import Sales from './pages/Sales'
-import Summary from './pages/summary'
+import AppRouter from './router/app-routes'
 import { Container } from './styles'
 
 function App() {
   return (
-    <>
-      <Container>
-        <SideNav />
-        <main>
-          <Header />
-          <Summary />
-          <Sales />
-        </main>
-      </Container>
-    </>
+    <Container>
+      <SideNav />
+      <main>
+        <Header />
+        <AppRouter />
+      </main>
+    </Container>
   )
 }
 

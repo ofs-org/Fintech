@@ -1,5 +1,5 @@
 import type React from 'react'
-import { DateInputStyles, DateLabel } from './date-input-styles'
+import { DateInputStyles, DateLabel } from './styles'
 
 type IDateInput = React.ComponentProps<'input'> & {
   label: string

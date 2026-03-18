@@ -5,4 +5,7 @@ export const SummaryStyles = styled.div`
   display: flex;
   gap: 1.25rem;
   margin-bottom: 1.25rem;
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
 `
